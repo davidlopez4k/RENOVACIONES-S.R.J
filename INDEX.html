@@ -1,0 +1,469 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Renovaciones S.R.J.</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: barra superior con pestañas + área de trabajo a ancho completo; detalle de póliza en panel lateral */
+:root{
+  --bg:#f3f5f6; --surface:#ffffff; --surface-2:#e9eef0; --line:#d5dde0;
+  --ink:#16252c; --muted:#5b6b72; --accent:#0f6b73; --accent-ink:#ffffff; --accent-soft:#d6ecec;
+  --red:#b42a2a; --red-soft:#f7dede; --orange:#b15c00; --orange-soft:#fbe7cf; --yellow:#8a6d00; --yellow-soft:#f6efc8;
+  --green:#2d7a3e; --green-soft:#dcefdf; --grey-soft:#e6eaec;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-data:"IBM Plex Mono", ui-monospace, "Cascadia Mono", monospace;
+  --r:8px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1719; --surface:#162226; --surface-2:#1d2c31; --line:#2b3d43;
+  --ink:#e4ecee; --muted:#9db0b6; --accent:#4fb8bf; --accent-ink:#06282b; --accent-soft:#173c40;
+  --red:#ff8a80; --red-soft:#4a1f1f; --orange:#ffb35c; --orange-soft:#45301a; --yellow:#e8cf5b; --yellow-soft:#3d3714;
+  --green:#7fd18f; --green-soft:#1d3a24; --grey-soft:#24343a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1719; --surface:#162226; --surface-2:#1d2c31; --line:#2b3d43;
+  --ink:#e4ecee; --muted:#9db0b6; --accent:#4fb8bf; --accent-ink:#06282b; --accent-soft:#173c40;
+  --red:#ff8a80; --red-soft:#4a1f1f; --orange:#ffb35c; --orange-soft:#45301a; --yellow:#e8cf5b; --yellow-soft:#3d3714;
+  --green:#7fd18f; --green-soft:#1d3a24; --grey-soft:#24343a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));max-width:1280px;margin:0 auto}
+header.top{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px 4px;flex-wrap:wrap}
+.brand h1{font-family:var(--f-display);font-size:1.35rem;margin:0;letter-spacing:-.01em}
+.brand h1 span{color:var(--accent)}
+.brand .meta{color:var(--muted);font-size:.8rem}
+.demo{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;background:var(--yellow-soft);color:var(--yellow);padding:2px 8px;border-radius:99px;font-weight:600}
+nav.tabs{display:flex;gap:4px;overflow-x:auto}
+nav.tabs button{border:0;background:none;color:var(--muted);font:500 .92rem var(--f-body);padding:10px 12px;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap}
+nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+nav.tabs .count{font-family:var(--f-data);font-size:.75rem;background:var(--red-soft);color:var(--red);border-radius:99px;padding:0 6px;margin-left:4px}
+main{padding-block:20px 48px}
+section.view{display:grid;gap:18px}
+h2{font-family:var(--f-display);font-size:1.15rem;margin:0;text-wrap:balance}
+h3{font-size:.78rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:0 0 8px;font-weight:600}
+p.lead{margin:0;color:var(--muted);max-width:70ch}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;display:grid;gap:2px;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.kpi:hover{border-color:var(--accent)}
+.kpi b{font-family:var(--f-data);font-size:1.7rem;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi small{color:var(--muted)}
+.kpi.k-red b{color:var(--red)} .kpi.k-orange b{color:var(--orange)} .kpi.k-yellow b{color:var(--yellow)} .kpi.k-green b{color:var(--green)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;min-width:0}
+.two{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:18px}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.tablebox{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th{text-align:left;font-weight:600;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;padding:8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:8px;border-bottom:1px solid var(--line);vertical-align:top}
+tr.clickable{cursor:pointer} tr.clickable:hover td{background:var(--surface-2)}
+.mono{font-family:var(--f-data);font-variant-numeric:tabular-nums;font-size:.84rem;white-space:nowrap}
+.pill{display:inline-flex;align-items:center;gap:5px;border-radius:99px;padding:1px 9px;font-size:.76rem;font-weight:600;white-space:nowrap}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.s-red{background:var(--red-soft);color:var(--red)} .s-orange{background:var(--orange-soft);color:var(--orange)}
+.s-yellow{background:var(--yellow-soft);color:var(--yellow)} .s-green{background:var(--green-soft);color:var(--green)} .s-grey{background:var(--grey-soft);color:var(--muted)}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:4px;padding:0 6px;font-size:.75rem;color:var(--muted);white-space:nowrap}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:end}
+label.f{display:grid;gap:3px;font-size:.76rem;color:var(--muted);font-weight:500}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:7px 9px;min-width:0}
+textarea{width:100%;resize:vertical}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.btn{font:600 .86rem var(--f-body);border-radius:6px;padding:8px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.small{padding:4px 9px;font-size:.78rem}
+.btn.danger{color:var(--red)}
+.bars{display:grid;gap:8px}
+.bar{display:grid;grid-template-columns:150px 1fr 34px;gap:8px;align-items:center;font-size:.84rem}
+.bar .track{height:12px;background:var(--surface-2);border-radius:3px;overflow:hidden;display:flex}
+.bar .seg-a{background:var(--accent)} .bar .seg-g{background:var(--orange)}
+.legend{display:flex;gap:14px;font-size:.78rem;color:var(--muted);margin-top:8px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.kanban{display:grid;grid-template-columns:repeat(6,minmax(200px,1fr));gap:10px;overflow-x:auto;padding-bottom:6px}
+.col{background:var(--surface-2);border-radius:var(--r);padding:8px;display:grid;gap:8px;align-content:start;min-height:120px}
+.col h3{display:flex;justify-content:space-between;margin:2px 4px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:9px;display:grid;gap:5px;cursor:pointer;font-size:.84rem}
+.card:hover{border-color:var(--accent)}
+.card .row{display:flex;justify-content:space-between;gap:6px;align-items:center;flex-wrap:wrap}
+.ins-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.ins{display:grid;gap:8px}
+.ins .nums{display:flex;gap:16px;font-size:.84rem}
+.ins .nums b{font-family:var(--f-data);font-size:1.2rem;display:block}
+.check{display:flex;gap:6px;align-items:center;font-size:.84rem}
+.warn{color:var(--red);font-weight:600}
+.empty{color:var(--muted);padding:16px;text-align:center}
+.drawer-back{position:fixed;inset:0;background:rgb(0 0 0 / .35);z-index:20}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(560px,100%);background:var(--surface);z-index:21;overflow-y:auto;border-left:1px solid var(--line);
+  padding:calc(16px + env(safe-area-inset-top,0px)) max(18px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) 18px;display:grid;gap:14px;align-content:start}
+.drawer header{display:flex;justify-content:space-between;align-items:start;gap:10px}
+.dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:.86rem}
+.dl dt{color:var(--muted)} .dl dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.timeline{display:grid;gap:8px;border-left:2px solid var(--line);padding-left:12px}
+.timeline div{font-size:.84rem}
+.timeline small{color:var(--muted);font-family:var(--f-data)}
+.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.msg{font-size:.84rem;padding:8px 10px;border-radius:6px}
+.msg.err{background:var(--red-soft);color:var(--red)} .msg.ok{background:var(--green-soft);color:var(--green)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:6px;z-index:30;font-weight:500}
+pre.mail{white-space:pre-wrap;font-family:var(--f-data);font-size:.8rem;background:var(--surface-2);padding:10px;border-radius:6px;max-height:300px;overflow:auto;margin:0}
+@media (prefers-reduced-motion:no-preference){.drawer{animation:slide .18s ease-out}@keyframes slide{from{transform:translateX(30px);opacity:.6}}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <div>
+        <h1>Renovaciones <span>S.R.J.</span></h1>
+        <div class="meta">CRM de renovaciones de pólizas · Prototipo navegable · Hoy <span id="hoy" class="mono"></span></div>
+      </div>
+      <span class="demo">Datos de ejemplo ficticios</span>
+    </div>
+    <nav class="tabs" role="tablist" id="tabs">
+      <button role="tab" data-v="tablero" aria-selected="true" id="tab-tablero">Tablero</button>
+      <button role="tab" data-v="polizas" aria-selected="false" id="tab-polizas">Pólizas</button>
+      <button role="tab" data-v="renovaciones" aria-selected="false" id="tab-renovaciones">Renovaciones</button>
+      <button role="tab" data-v="aseguradoras" aria-selected="false" id="tab-aseguradoras">Solicitudes a aseguradoras</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="main"></main>
+<div id="overlay"></div>
+
+<script>
+(function(){
+const DAY=864e5;
+const HOY=new Date(); HOY.setHours(0,0,0,0);
+const ASEG=["SURA","Allianz","Seguros Bolívar","La Previsora","Mapfre","HDI Seguros","Equidad Seguros","Solidaria"];
+const RAMOS=["Autos","Hogar","Responsabilidad civil","Cumplimiento","Pyme / Multirriesgo","Vida","Maquinaria y equipo","Transporte"];
+const ESTADOS=["Por gestionar","Contactado","En cotización","Renovada","Cambió de aseguradora","No renovada"];
+const VENTANA=90;
+const KEY="srj-renovaciones-v1";
+
+function iso(d){return new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)}
+function addDays(n){return iso(new Date(HOY.getTime()+n*DAY))}
+function parse(s){const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)}
+function dias(p){return Math.round((parse(p.fin)-HOY)/DAY)}
+function plusYear(s){const d=parse(s);d.setFullYear(d.getFullYear()+1);return iso(d)}
+function fmtFecha(s){if(!s)return"—";const d=parse(s);return d.toLocaleDateString("es-CO",{day:"2-digit",month:"short",year:"numeric"})}
+function cop(n){return n||n===0?"$ "+Number(n).toLocaleString("es-CO"):"—"}
+function esc(s){return String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function uid(){return Math.random().toString(36).slice(2,10)}
+function generales(r){return r!=="Autos"}
+
+/* ---------- datos de ejemplo ---------- */
+function seed(){
+  const nombres=["Luz Marina Rincón","Jorge Eliécer Pérez","Transportes La Llanura S.A.S.","Diana Carolina Barrera","Ferretería El Tractor","Óscar Iván Cárdenas","María Fernanda Tumay","Agropecuaria Los Esteros S.A.S.","Henry Alexis Salcedo","Constructora Cravo Sur S.A.S.","Yuli Andrea Montaña","Carlos Arturo Patiño","Distribuidora Upía Ltda.","Nubia Esperanza Avella","Wilmer Fabián Chaparro","Sandra Milena Holguín","Arrocera Pore S.A.S.","Edwin Mauricio Ladino","Paola Andrea Vega","Servicentro Morichal","Germán Darío Cely","Leidy Johana Fonseca","Hotel Sirivana Yopal","Rubén Darío Mesa","Claudia Patricia Niño","Taller Mecánico El Cusiana","Fabio Nelson Tocaría","Ingrid Lorena Sossa"];
+  const plan=[[-6,"Autos"],[-2,"Cumplimiento"],[3,"Autos"],[5,"Hogar"],[8,"Responsabilidad civil"],[11,"Autos"],[14,"Pyme / Multirriesgo"],[18,"Autos"],[21,"Maquinaria y equipo"],[24,"Autos"],[27,"Hogar"],[33,"Autos"],[36,"Cumplimiento"],[40,"Vida"],[44,"Autos"],[48,"Transporte"],[52,"Autos"],[57,"Pyme / Multirriesgo"],[63,"Autos"],[68,"Hogar"],[74,"Autos"],[79,"Responsabilidad civil"],[85,"Autos"],[96,"Autos"],[130,"Hogar"],[175,"Autos"],[240,"Cumplimiento"],[300,"Autos"]];
+  const est=["Por gestionar","Por gestionar","Contactado","En cotización","Por gestionar","Contactado","Por gestionar","En cotización","Por gestionar","Contactado","Por gestionar","Por gestionar","Contactado","Por gestionar","Por gestionar","Por gestionar","Por gestionar","Por gestionar","Por gestionar","Por gestionar","Por gestionar","Por gestionar","Por gestionar","Por gestionar","Por gestionar","Renovada","Renovada","Renovada"];
+  const placas=["KTR482","FXQ913","HLM207","JYO554","DQS860","LMN331","GTP118","NRV745","EZK609","BWJ272","CUX438","PAZ916","RSO153","TYH680"];
+  let pi=0;
+  return plan.map(([d,ramo],i)=>{
+    const fin=addDays(d), ini=iso(new Date(parse(fin).setFullYear(parse(fin).getFullYear()-1)));
+    const aseg=ASEG[(i%4)+4*((i>>4)&1)];
+    const valor=ramo==="Autos"?(45+((i*17)%90))*1e6:ramo==="Vida"?200e6:(80+((i*37)%400))*1e6;
+    const prima=Math.round(valor*(ramo==="Autos"?0.034:ramo==="Cumplimiento"?0.012:0.006)/1000)*1000;
+    const p={id:uid(),numero:(1000+i*7)+"-"+(30000+i*913),aseguradora:aseg,ramo,cliente:nombres[i],cedula:String(74180000+i*48271).slice(0,8),
+      correo:i===9?"":nombres[i].toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z ]/g,"").trim().split(" ").slice(0,2).join(".")+"@correo.com",
+      celular:i===16?"":"31"+String(20000000+i*3511973).slice(0,8),placa:ramo==="Autos"?placas[pi++%placas.length]:"",valor,prima,inicio:ini,fin,estado:est[i],renovadaEl:"",
+      gestiones:[{f:ini,t:"Registro",n:"Póliza registrada al momento de la expedición."}],cotizaciones:[],docs:["Carátula póliza "+ini.slice(0,4)+".pdf"],historial:[],solicitud:{}};
+    if(p.estado==="Contactado")p.gestiones.push({f:addDays(-3),t:"WhatsApp",n:"Se envió recordatorio de vencimiento. Cliente pide que le coticen."});
+    if(p.estado==="En cotización"){p.gestiones.push({f:addDays(-5),t:"Llamada",n:"Cliente quiere comparar precio con otra compañía."});p.cotizaciones.push({a:ASEG[(i*3+1)%ASEG.length],prima:Math.round(prima*0.93/1000)*1000,n:"Mismo amparo, deducible 10%"});}
+    if(p.estado==="Renovada"){p.renovadaEl=addDays(-(i-22)*4);p.historial.push({f:p.renovadaEl,a:aseg,prima:Math.round(prima*0.95/1000)*1000});p.gestiones.push({f:p.renovadaEl,t:"Renovación",n:"Renovada con "+aseg+"."});}
+    return p;
+  });
+}
+let DB;
+function load(){try{const s=localStorage.getItem(KEY);if(s){DB=JSON.parse(s);return}}catch(e){} DB={polizas:seed(),solicitudes:{}};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){}}
+load();
+
+/* ---------- reglas ---------- */
+function estadoEf(p){
+  if((p.estado==="Renovada"||p.estado==="Cambió de aseguradora")&&dias(p)<=VENTANA&&p.renovadaEl&&(HOY-parse(p.renovadaEl))/DAY>180)return"Por gestionar";
+  return p.estado;
+}
+function cerrado(p){const e=estadoEf(p);return e==="Renovada"||e==="Cambió de aseguradora"||e==="No renovada"}
+function semaforo(p){
+  const d=dias(p);
+  if(cerrado(p))return estadoEf(p)==="No renovada"?["s-grey","No renovada"]:["s-green","Renovada"];
+  if(d<0)return["s-red","Vencida hace "+(-d)+" d"];
+  if(d<=15)return["s-red",d+" días"];
+  if(d<=30)return["s-orange",d+" días"];
+  if(d<=60)return["s-yellow",d+" días"];
+  if(d<=VENTANA)return["s-green",d+" días"];
+  return["s-grey","Vigente"];
+}
+function pill(p){const [c,t]=semaforo(p);return`<span class="pill ${c}">${esc(t)}</span>`}
+function faltantes(p){const f=[];if(!p.correo)f.push("correo");if(!p.celular)f.push("celular");if(p.ramo==="Autos"&&!p.placa)f.push("placa");return f}
+
+/* ---------- UI general ---------- */
+let vista="tablero", filtros={q:"",aseg:"",ramo:"",estado:"",ventana:""};
+const main=document.getElementById("main"), overlay=document.getElementById("overlay");
+document.getElementById("hoy").textContent=fmtFecha(iso(HOY));
+document.getElementById("tabs").addEventListener("click",e=>{const b=e.target.closest("button[data-v]");if(b)ir(b.dataset.v)});
+function ir(v,f){vista=v;if(f)filtros=Object.assign({q:"",aseg:"",ramo:"",estado:"",ventana:""},f);
+  document.querySelectorAll("#tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.v===v));render();window.scrollTo(0,0)}
+function toast(t){const el=document.createElement("div");el.className="toast";el.textContent=t;document.body.appendChild(el);setTimeout(()=>el.remove(),2200)}
+function render(){
+  const urg=DB.polizas.filter(p=>!cerrado(p)&&dias(p)<=15).length;
+  document.getElementById("tab-tablero").innerHTML="Tablero"+(urg?`<span class="count">${urg}</span>`:"");
+  ({tablero:vTablero,polizas:vPolizas,renovaciones:vKanban,aseguradoras:vAseg})[vista]();
+}
+
+/* ---------- Tablero ---------- */
+function vTablero(){
+  const ps=DB.polizas, ab=ps.filter(p=>!cerrado(p));
+  const venc=ab.filter(p=>dias(p)<0), d15=ab.filter(p=>dias(p)>=0&&dias(p)<=15), d30=ab.filter(p=>dias(p)>15&&dias(p)<=30), d60=ab.filter(p=>dias(p)>30&&dias(p)<=60);
+  const ren30=ps.filter(p=>p.historial.some(h=>(HOY-parse(h.f))/DAY<=30)).length;
+  const prio=ab.filter(p=>dias(p)<=30).sort((a,b)=>dias(a)-dias(b));
+  const incompletos=ps.filter(p=>faltantes(p).length);
+  const meses=[0,1,2].map(k=>{const d=new Date(HOY.getFullYear(),HOY.getMonth()+k,1);return d});
+  const filas=meses.map(m=>{const l=ps.filter(p=>{const f=parse(p.fin);return f.getMonth()===m.getMonth()&&f.getFullYear()===m.getFullYear()&&!cerrado(p)});return{m,a:l.filter(p=>p.ramo==="Autos").length,g:l.filter(p=>generales(p.ramo)).length}});
+  const max=Math.max(1,...filas.map(f=>f.a+f.g));
+  main.innerHTML=`<section class="view">
+  <div><h2>Vencimientos por atender</h2><p class="lead">Las alertas se calculan con la fecha de fin de vigencia registrada, sin esperar el listado de la aseguradora.</p></div>
+  <div class="kpis">
+    <button class="kpi k-red" data-go="vencidas" id="kpi-vencidas"><small>Vencidas sin renovar</small><b>${venc.length}</b></button>
+    <button class="kpi k-red" data-go="15" id="kpi-15"><small>Vencen en 0 a 15 días</small><b>${d15.length}</b></button>
+    <button class="kpi k-orange" data-go="30" id="kpi-30"><small>Vencen en 16 a 30 días</small><b>${d30.length}</b></button>
+    <button class="kpi k-yellow" data-go="60" id="kpi-60"><small>Vencen en 31 a 60 días</small><b>${d60.length}</b></button>
+    <button class="kpi k-green" data-go="ren" id="kpi-ren"><small>Renovadas últimos 30 días</small><b>${ren30}</b></button>
+  </div>
+  <div class="two">
+    <div class="panel"><h3>Prioridad: vencidas y próximos 30 días</h3>
+      <div class="tablebox"><table id="tabla-prioridad"><thead><tr><th>Vence</th><th>Cliente</th><th>Ramo</th><th>Aseguradora</th><th>Estado</th></tr></thead><tbody>
+      ${prio.map(p=>`<tr class="clickable" data-id="${p.id}"><td>${pill(p)}<div class="mono" style="color:var(--muted);font-size:.75rem">${fmtFecha(p.fin)}</div></td><td>${esc(p.cliente)}</td><td><span class="tag">${esc(p.ramo)}</span></td><td>${esc(p.aseguradora)}</td><td>${esc(estadoEf(p))}</td></tr>`).join("")||`<tr><td colspan="5" class="empty">No hay pólizas en esta ventana.</td></tr>`}
+      </tbody></table></div></div>
+    <div style="display:grid;gap:18px;align-content:start">
+      <div class="panel"><h3>Pendientes por mes de vencimiento</h3><div class="bars">
+        ${filas.map(f=>`<div class="bar"><span>${f.m.toLocaleDateString("es-CO",{month:"long",year:"numeric"})}</span><div class="track"><div class="seg-a" style="width:${f.a/max*100}%"></div><div class="seg-g" style="width:${f.g/max*100}%"></div></div><span class="mono">${f.a+f.g}</span></div>`).join("")}
+      </div><div class="legend"><span><i style="background:var(--accent)"></i>Autos</span><span><i style="background:var(--orange)"></i>Ramos generales</span></div></div>
+      <div class="panel"><h3>Registros con datos de contacto incompletos</h3>
+        ${incompletos.length?incompletos.map(p=>`<div class="check" style="justify-content:space-between;padding:4px 0;cursor:pointer" data-id="${p.id}"><span>${esc(p.cliente)}</span><span class="warn">Falta ${faltantes(p).join(", ")}</span></div>`).join(""):`<p class="empty">Todos los registros tienen datos de contacto.</p>`}
+      </div>
+    </div>
+  </div></section>`;
+  main.querySelectorAll("[data-id]").forEach(el=>el.onclick=()=>detalle(el.dataset.id));
+  main.querySelectorAll("[data-go]").forEach(el=>el.onclick=()=>{const g=el.dataset.go;
+    if(g==="ren")ir("polizas",{estado:"Renovada"});else ir("polizas",{ventana:g});});
+}
+
+/* ---------- Pólizas ---------- */
+function filtrar(){
+  const q=filtros.q.trim().toLowerCase();
+  return DB.polizas.filter(p=>{
+    if(q&&![p.cliente,p.numero,p.cedula,p.placa].join(" ").toLowerCase().includes(q))return false;
+    if(filtros.aseg&&p.aseguradora!==filtros.aseg)return false;
+    if(filtros.ramo==="Generales"&&!generales(p.ramo))return false;
+    if(filtros.ramo&&filtros.ramo!=="Generales"&&p.ramo!==filtros.ramo)return false;
+    if(filtros.estado&&estadoEf(p)!==filtros.estado)return false;
+    const d=dias(p),ab=!cerrado(p);
+    if(filtros.ventana==="vencidas"&&!(ab&&d<0))return false;
+    if(filtros.ventana==="15"&&!(ab&&d>=0&&d<=15))return false;
+    if(filtros.ventana==="30"&&!(ab&&d>15&&d<=30))return false;
+    if(filtros.ventana==="60"&&!(ab&&d>30&&d<=60))return false;
+    if(filtros.ventana==="90"&&!(ab&&d<=90))return false;
+    return true;
+  }).sort((a,b)=>dias(a)-dias(b));
+}
+function opts(arr,sel,todos){return(todos?`<option value="">${todos}</option>`:"")+arr.map(a=>`<option ${a===sel?"selected":""} value="${esc(a)}">${esc(a)}</option>`).join("")}
+function vPolizas(){
+  main.innerHTML=`<section class="view">
+  <div class="toolbar" style="justify-content:space-between"><div><h2>Registro de pólizas</h2><p class="lead">Base única de clientes y pólizas de todos los ramos.</p></div>
+    <div class="toolbar"><button class="btn" id="btn-importar">Importar desde Excel</button><button class="btn primary" id="btn-nueva">Registrar póliza</button></div></div>
+  <div class="toolbar panel">
+    <label class="f" style="flex:1 1 220px">Buscar<input id="f-q" placeholder="Cliente, cédula, n.º póliza o placa" value="${esc(filtros.q)}"></label>
+    <label class="f">Aseguradora<select id="f-aseg">${opts(ASEG,filtros.aseg,"Todas")}</select></label>
+    <label class="f">Ramo<select id="f-ramo">${opts(["Generales",...RAMOS],filtros.ramo,"Todos")}</select></label>
+    <label class="f">Estado<select id="f-estado">${opts(ESTADOS,filtros.estado,"Todos")}</select></label>
+    <label class="f">Vencimiento<select id="f-ventana"><option value="">Cualquiera</option>${[["vencidas","Vencidas sin renovar"],["15","0 a 15 días"],["30","16 a 30 días"],["60","31 a 60 días"],["90","Próximos 90 días"]].map(([v,t])=>`<option value="${v}" ${filtros.ventana===v?"selected":""}>${t}</option>`).join("")}</select></label>
+  </div>
+  <div class="panel"><div class="tablebox" id="tbl"></div></div></section>`;
+  const pintar=()=>{const l=filtrar();
+    document.getElementById("tbl").innerHTML=`<table id="tabla-polizas"><thead><tr><th>N.º póliza</th><th>Cliente</th><th>Ramo</th><th>Aseguradora</th><th>Placa</th><th>Prima</th><th>Fin vigencia</th><th>Alerta</th><th>Estado</th></tr></thead><tbody>
+    ${l.map(p=>`<tr class="clickable" data-id="${p.id}"><td class="mono">${esc(p.numero)}</td><td>${esc(p.cliente)}<div style="color:var(--muted);font-size:.76rem">C.C./NIT ${esc(p.cedula)}</div></td><td><span class="tag">${esc(p.ramo)}</span></td><td>${esc(p.aseguradora)}</td><td class="mono">${esc(p.placa)||"—"}</td><td class="mono">${cop(p.prima)}</td><td class="mono">${fmtFecha(p.fin)}</td><td>${pill(p)}</td><td>${esc(estadoEf(p))}</td></tr>`).join("")||`<tr><td colspan="9" class="empty">Ninguna póliza coincide con los filtros.</td></tr>`}
+    </tbody></table><p style="color:var(--muted);font-size:.8rem;margin:8px 0 0">${l.length} de ${DB.polizas.length} pólizas</p>`;
+    document.querySelectorAll("#tbl tr[data-id]").forEach(tr=>tr.onclick=()=>detalle(tr.dataset.id));};
+  pintar();
+  document.getElementById("f-q").oninput=e=>{filtros.q=e.target.value;pintar()};
+  ["aseg","ramo","estado","ventana"].forEach(k=>document.getElementById("f-"+k).onchange=e=>{filtros[k]=e.target.value;pintar()});
+  document.getElementById("btn-nueva").onclick=()=>formPoliza();
+  document.getElementById("btn-importar").onclick=importar;
+}
+
+/* ---------- Formulario ---------- */
+function formPoliza(p){
+  const n=!p; p=p||{numero:"",aseguradora:ASEG[0],ramo:"Autos",cliente:"",cedula:"",correo:"",celular:"",placa:"",valor:"",prima:"",inicio:iso(HOY),fin:plusYear(iso(HOY))};
+  abrir(`<header><div><h2>${n?"Registrar póliza":"Editar póliza"}</h2><p class="lead">Los campos con * son obligatorios para poder alertar el vencimiento.</p></div><button class="btn small" data-close id="cerrar">Cerrar</button></header>
+  <form id="frm" class="formgrid" novalidate>
+    <label class="f">N.º de póliza *<input id="p-numero" value="${esc(p.numero)}"></label>
+    <label class="f">Aseguradora *<select id="p-aseguradora">${opts(ASEG,p.aseguradora)}</select></label>
+    <label class="f">Ramo *<select id="p-ramo">${opts(RAMOS,p.ramo)}</select></label>
+    <label class="f">Nombre completo del cliente *<input id="p-cliente" value="${esc(p.cliente)}"></label>
+    <label class="f">Cédula o NIT *<input id="p-cedula" inputmode="numeric" value="${esc(p.cedula)}"></label>
+    <label class="f">Correo electrónico<input id="p-correo" type="email" value="${esc(p.correo)}"></label>
+    <label class="f">Celular<input id="p-celular" inputmode="tel" value="${esc(p.celular)}"></label>
+    <label class="f">Placa del vehículo<input id="p-placa" value="${esc(p.placa)}" style="text-transform:uppercase"></label>
+    <label class="f">Valor asegurado<input id="p-valor" inputmode="numeric" value="${esc(p.valor)}"></label>
+    <label class="f">Prima *<input id="p-prima" inputmode="numeric" value="${esc(p.prima)}"></label>
+    <label class="f">Inicio de vigencia *<input id="p-inicio" type="date" value="${esc(p.inicio)}"></label>
+    <label class="f">Fin de vigencia *<input id="p-fin" type="date" value="${esc(p.fin)}"></label>
+    <div id="frm-msg" style="grid-column:1/-1"></div>
+    <div style="grid-column:1/-1;display:flex;gap:8px"><button class="btn primary" type="submit" id="p-guardar">Guardar póliza</button></div>
+  </form>`);
+  document.getElementById("p-inicio").onchange=e=>{const f=document.getElementById("p-fin");if(e.target.value)f.value=plusYear(e.target.value)};
+  document.getElementById("frm").onsubmit=e=>{e.preventDefault();
+    const v=k=>document.getElementById("p-"+k).value.trim();
+    const d={numero:v("numero"),aseguradora:v("aseguradora"),ramo:v("ramo"),cliente:v("cliente"),cedula:v("cedula").replace(/\D/g,""),correo:v("correo"),celular:v("celular").replace(/\D/g,""),placa:v("placa").toUpperCase(),valor:Number(v("valor").replace(/\D/g,""))||0,prima:Number(v("prima").replace(/\D/g,""))||0,inicio:v("inicio"),fin:v("fin")};
+    const err=[];
+    if(!d.numero)err.push("el número de póliza");if(!d.cliente)err.push("el nombre del cliente");if(!d.cedula)err.push("la cédula o NIT");if(!d.prima)err.push("la prima");if(!d.inicio||!d.fin)err.push("las fechas de vigencia");
+    if(d.ramo==="Autos"&&!d.placa)err.push("la placa (obligatoria en Autos)");
+    if(d.correo&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.correo))err.push("un correo válido");
+    if(d.inicio&&d.fin&&d.fin<=d.inicio)err.push("un fin de vigencia posterior al inicio");
+    const dup=DB.polizas.find(x=>x.numero===d.numero&&x.aseguradora===d.aseguradora&&(n||x.id!==p.id));
+    if(dup)err.push("un número que no esté repetido (ya existe en "+dup.aseguradora+")");
+    const m=document.getElementById("frm-msg");
+    if(err.length){m.innerHTML=`<div class="msg err" id="msg-error">Falta completar: ${esc(err.join("; "))}.</div>`;return}
+    if(n){DB.polizas.push(Object.assign({id:uid(),estado:"Por gestionar",renovadaEl:"",gestiones:[{f:iso(HOY),t:"Registro",n:"Póliza registrada en la plataforma."}],cotizaciones:[],docs:[],historial:[],solicitud:{}},d));}
+    else{Object.assign(p,d);p.gestiones.push({f:iso(HOY),t:"Edición",n:"Se actualizaron los datos de la póliza."});}
+    save();cerrar();render();toast(n?"Póliza registrada":"Cambios guardados");
+  };
+}
+function importar(){
+  abrir(`<header><div><h2>Importar desde Excel</h2><p class="lead">Copie las filas de la hoja de cálculo actual (con encabezados) y péguelas aquí. Columnas esperadas: póliza, aseguradora, ramo, cliente, cédula, correo, celular, placa, valor asegurado, prima, inicio, fin (AAAA-MM-DD).</p></div><button class="btn small" data-close>Cerrar</button></header>
+  <textarea id="imp-txt" rows="9" placeholder="póliza	aseguradora	ramo	cliente	cédula	correo	celular	placa	valor	prima	inicio	fin"></textarea>
+  <div><button class="btn primary" id="imp-go">Revisar e importar</button></div><div id="imp-msg"></div>`);
+  document.getElementById("imp-go").onclick=()=>{
+    const filas=document.getElementById("imp-txt").value.trim().split(/\r?\n/).filter(Boolean);
+    let ok=0,mal=[];
+    filas.slice(1).forEach((l,i)=>{const c=l.split(/\t|;/).map(s=>s.trim());
+      const [numero,aseguradora,ramo,cliente,cedula,correo,celular,placa,valor,prima,inicio,fin]=c;
+      if(!numero||!cliente||!/^\d{4}-\d{2}-\d{2}$/.test(fin||"")){mal.push(i+2);return}
+      if(DB.polizas.some(x=>x.numero===numero&&x.aseguradora===aseguradora)){mal.push(i+2);return}
+      DB.polizas.push({id:uid(),numero,aseguradora:aseguradora||"",ramo:RAMOS.includes(ramo)?ramo:"Autos",cliente,cedula:(cedula||"").replace(/\D/g,""),correo:correo||"",celular:(celular||"").replace(/\D/g,""),placa:(placa||"").toUpperCase(),valor:Number((valor||"").replace(/\D/g,""))||0,prima:Number((prima||"").replace(/\D/g,""))||0,inicio:inicio||"",fin,estado:"Por gestionar",renovadaEl:"",gestiones:[{f:iso(HOY),t:"Registro",n:"Importada desde la hoja de cálculo."}],cotizaciones:[],docs:[],historial:[],solicitud:{}});ok++;});
+    save();render();
+    document.getElementById("imp-msg").innerHTML=`<div class="msg ${mal.length?"err":"ok"}">Se importaron ${ok} pólizas.${mal.length?" Filas no importadas (incompletas o repetidas): "+mal.join(", ")+".":""}</div>`;
+  };
+}
+
+/* ---------- Detalle ---------- */
+function detalle(id){
+  const p=DB.polizas.find(x=>x.id===id); if(!p)return;
+  const falt=faltantes(p);
+  abrir(`<header><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">${pill(p)}<span class="tag">${esc(p.ramo)}</span></div><h2 style="margin-top:6px">${esc(p.cliente)}</h2><p class="lead mono">Póliza ${esc(p.numero)} · ${esc(p.aseguradora)}</p></div><button class="btn small" data-close id="cerrar">Cerrar</button></header>
+  ${falt.length?`<div class="msg err">Registro incompleto: falta ${falt.join(", ")}. Sin estos datos no se puede contactar al cliente a tiempo.</div>`:""}
+  <dl class="dl">
+    <dt>Cédula / NIT</dt><dd class="mono">${esc(p.cedula)}</dd><dt>Correo</dt><dd>${esc(p.correo)||"—"}</dd><dt>Celular</dt><dd class="mono">${esc(p.celular)||"—"}</dd>
+    ${p.placa?`<dt>Placa</dt><dd class="mono">${esc(p.placa)}</dd>`:""}<dt>Valor asegurado</dt><dd class="mono">${cop(p.valor)}</dd><dt>Prima actual</dt><dd class="mono">${cop(p.prima)}</dd>
+    <dt>Vigencia</dt><dd class="mono">${fmtFecha(p.inicio)} a ${fmtFecha(p.fin)}</dd>
+  </dl>
+  <div class="toolbar"><label class="f">Estado de la renovación<select id="d-estado">${opts(ESTADOS.filter(e=>e!=="Renovada"&&e!=="Cambió de aseguradora"),estadoEf(p))}${cerrado(p)&&estadoEf(p)!=="No renovada"?`<option selected>${esc(estadoEf(p))}</option>`:""}</select></label>
+    <button class="btn primary" id="d-renovar">Registrar renovación</button><button class="btn" id="d-editar">Editar datos</button></div>
+  <div id="d-extra"></div>
+  <div class="panel"><h3>Registrar gestión</h3><div class="toolbar">
+    <label class="f">Tipo<select id="g-tipo">${opts(["Llamada","WhatsApp","Correo","Visita","Nota"])}</select></label>
+    <label class="f" style="flex:1 1 220px">Detalle<input id="g-nota" placeholder="Qué se habló o qué queda pendiente"></label>
+    <button class="btn" id="g-add">Agregar</button></div></div>
+  <div class="panel"><h3>Cotizaciones de otras aseguradoras</h3>
+    ${p.cotizaciones.length?`<table><thead><tr><th>Aseguradora</th><th>Prima</th><th>Diferencia</th><th>Nota</th></tr></thead><tbody>${p.cotizaciones.map(c=>{const df=c.prima-p.prima;return`<tr><td>${esc(c.a)}</td><td class="mono">${cop(c.prima)}</td><td class="mono" style="color:${df<0?"var(--green)":"var(--red)"}">${df<0?"−":"+"}${cop(Math.abs(df))}</td><td>${esc(c.n)}</td></tr>`}).join("")}</tbody></table>`:`<p class="lead" style="margin-bottom:8px">Sin cotizaciones registradas.</p>`}
+    <div class="toolbar" style="margin-top:8px"><label class="f">Aseguradora<select id="c-a">${opts(ASEG.filter(a=>a!==p.aseguradora))}</select></label><label class="f">Prima<input id="c-p" inputmode="numeric" style="width:130px"></label><label class="f" style="flex:1 1 140px">Nota<input id="c-n"></label><button class="btn" id="c-add">Agregar cotización</button></div></div>
+  <div class="panel"><h3>Documentos</h3>${p.docs.map(d=>`<div class="check"><span class="tag">PDF</span> ${esc(d)}</div>`).join("")||`<p class="lead">Sin documentos.</p>`}
+    <div class="toolbar" style="margin-top:8px"><input id="doc-f" type="file"><button class="btn small" id="doc-add">Adjuntar</button></div></div>
+  <div><h3>Bitácora de gestiones</h3><div class="timeline" id="bitacora">${[...p.gestiones].reverse().map(g=>`<div><small>${fmtFecha(g.f)} · ${esc(g.t)}</small><br>${esc(g.n)}</div>`).join("")}</div></div>
+  ${p.historial.length?`<div><h3>Historial de renovaciones</h3>${p.historial.map(h=>`<div class="check mono">${fmtFecha(h.f)} · ${esc(h.a)} · ${cop(h.prima)}</div>`).join("")}</div>`:""}
+  `);
+  const re=()=>{save();render();detalle(id)};
+  document.getElementById("d-estado").onchange=e=>{const v=e.target.value;
+    if(v==="No renovada"){document.getElementById("d-extra").innerHTML=`<div class="panel toolbar"><label class="f" style="flex:1 1 220px">Motivo de no renovación *<input id="nr-m"></label><button class="btn danger" id="nr-ok">Confirmar</button></div>`;
+      document.getElementById("nr-ok").onclick=()=>{const m=document.getElementById("nr-m").value.trim();if(!m){toast("Escriba el motivo");return}p.estado="No renovada";p.gestiones.push({f:iso(HOY),t:"No renovada",n:m});re();toast("Marcada como no renovada")};return}
+    p.estado=v;p.gestiones.push({f:iso(HOY),t:"Cambio de estado",n:"Estado: "+v});re();toast("Estado actualizado");};
+  document.getElementById("d-editar").onclick=()=>formPoliza(p);
+  document.getElementById("g-add").onclick=()=>{const n=document.getElementById("g-nota").value.trim();if(!n){toast("Escriba el detalle de la gestión");return}
+    p.gestiones.push({f:iso(HOY),t:document.getElementById("g-tipo").value,n});if(p.estado==="Por gestionar")p.estado="Contactado";re();toast("Gestión registrada")};
+  document.getElementById("c-add").onclick=()=>{const pr=Number(document.getElementById("c-p").value.replace(/\D/g,""));if(!pr){toast("Escriba la prima cotizada");return}
+    const a=document.getElementById("c-a").value;p.cotizaciones.push({a,prima:pr,n:document.getElementById("c-n").value.trim()});if(!cerrado(p))p.estado="En cotización";p.gestiones.push({f:iso(HOY),t:"Cotización",n:"Cotización con "+a+" por "+cop(pr)});re();toast("Cotización agregada")};
+  document.getElementById("doc-add").onclick=()=>{const f=document.getElementById("doc-f").files[0];if(!f){toast("Seleccione un archivo");return}p.docs.push(f.name);p.gestiones.push({f:iso(HOY),t:"Documento",n:"Se adjuntó "+f.name});re()};
+  document.getElementById("d-renovar").onclick=()=>{
+    document.getElementById("d-extra").innerHTML=`<div class="panel"><h3>Renovación de la vigencia</h3><div class="formgrid">
+      <label class="f">Aseguradora<select id="r-a">${opts(ASEG,p.aseguradora)}</select></label>
+      <label class="f">N.º de póliza nueva vigencia<input id="r-n" value="${esc(p.numero)}"></label>
+      <label class="f">Prima nueva *<input id="r-p" inputmode="numeric" value="${p.prima}"></label>
+      <label class="f">Nuevo fin de vigencia<input id="r-f" type="date" value="${plusYear(p.fin)}"></label></div>
+      <div style="margin-top:10px"><button class="btn primary" id="r-ok">Confirmar renovación</button></div></div>`;
+    document.getElementById("r-ok").onclick=()=>{const a=document.getElementById("r-a").value,pr=Number(document.getElementById("r-p").value.replace(/\D/g,""));if(!pr){toast("Escriba la prima");return}
+      const cambio=a!==p.aseguradora;p.historial.push({f:iso(HOY),a,prima:pr});
+      p.gestiones.push({f:iso(HOY),t:"Renovación",n:(cambio?"Cliente trasladado de "+p.aseguradora+" a "+a:"Renovada con "+a)+". Prima "+cop(pr)+"."});
+      p.inicio=p.fin;p.fin=document.getElementById("r-f").value;p.aseguradora=a;p.numero=document.getElementById("r-n").value.trim()||p.numero;p.prima=pr;
+      p.estado=cambio?"Cambió de aseguradora":"Renovada";p.renovadaEl=iso(HOY);p.cotizaciones=[];re();toast("Renovación registrada; la alerta del próximo año queda programada")};
+  };
+}
+function abrir(html){overlay.innerHTML=`<div class="drawer-back" data-close></div><aside class="drawer" role="dialog" aria-modal="true">${html}</aside>`;
+  overlay.querySelectorAll("[data-close]").forEach(b=>b.onclick=cerrar);}
+function cerrar(){overlay.innerHTML=""}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")cerrar()});
+
+/* ---------- Kanban ---------- */
+function vKanban(){
+  const l=DB.polizas.filter(p=>{const e=estadoEf(p);if(cerrado(p))return p.renovadaEl?(HOY-parse(p.renovadaEl))/DAY<=30:dias(p)>=-30;return dias(p)<=VENTANA});
+  main.innerHTML=`<section class="view"><div><h2>Renovaciones en curso</h2><p class="lead">Pólizas que vencen en los próximos ${VENTANA} días, organizadas por etapa de gestión. Abra una tarjeta para registrar llamadas, cotizaciones o la renovación.</p></div>
+  <div class="kanban" id="kanban">${ESTADOS.map(e=>{const c=l.filter(p=>estadoEf(p)===e).sort((a,b)=>dias(a)-dias(b));
+    return`<div class="col"><h3><span>${e}</span><span class="mono">${c.length}</span></h3>${c.map(p=>`<div class="card" data-id="${p.id}"><div class="row"><b>${esc(p.cliente)}</b></div><div class="row"><span class="tag">${esc(p.ramo)}</span>${pill(p)}</div><div style="color:var(--muted);font-size:.78rem">${esc(p.aseguradora)} · ${cop(p.prima)}</div></div>`).join("")||`<div class="empty" style="font-size:.8rem">Sin pólizas</div>`}</div>`}).join("")}</div></section>`;
+  main.querySelectorAll("[data-id]").forEach(el=>el.onclick=()=>detalle(el.dataset.id));
+}
+
+/* ---------- Aseguradoras ---------- */
+let mesSel=null;
+function vAseg(){
+  if(!mesSel){const d=new Date(HOY.getFullYear(),HOY.getMonth()+1,1);mesSel=iso(d).slice(0,7)}
+  const [y,m]=mesSel.split("-").map(Number);
+  const delMes=DB.polizas.filter(p=>{const f=parse(p.fin);return f.getFullYear()===y&&f.getMonth()===m-1&&!cerrado(p)});
+  const meses=[0,1,2,3].map(k=>iso(new Date(HOY.getFullYear(),HOY.getMonth()+k,1)).slice(0,7));
+  const sol=DB.solicitudes[mesSel]||(DB.solicitudes[mesSel]={});
+  main.innerHTML=`<section class="view">
+  <div class="toolbar" style="justify-content:space-between"><div><h2>Solicitudes de renovación a las aseguradoras</h2><p class="lead">Para cada compañía se arma la lista de pólizas que vencen en el mes, de autos y de ramos generales, para pedir la renovación de todas y no solo de las que la aseguradora envíe.</p></div>
+  <label class="f">Mes de vencimiento<select id="mes">${meses.map(s=>`<option value="${s}" ${s===mesSel?"selected":""}>${parse(s+"-01").toLocaleDateString("es-CO",{month:"long",year:"numeric"})}</option>`).join("")}</select></label></div>
+  <div class="ins-grid">${ASEG.map(a=>{const l=delMes.filter(p=>p.aseguradora===a);if(!l.length)return"";const s=sol[a]||{};
+    const au=l.filter(p=>p.ramo==="Autos").length,ge=l.length-au;
+    const pend=(au&&!s.autos)||(ge&&!s.gen);
+    return`<div class="panel ins"><div class="toolbar" style="justify-content:space-between"><b>${esc(a)}</b>${s.enviada?`<span class="pill ${pend?"s-orange":"s-green"}">${pend?"Respuesta pendiente":"Completa"}</span>`:`<span class="pill s-red">Sin solicitar</span>`}</div>
+      <div class="nums"><span><b>${au}</b>Autos</span><span><b>${ge}</b>Generales</span></div>
+      <label class="check"><input type="checkbox" data-a="${esc(a)}" data-k="autos" ${s.autos?"checked":""} ${au?"":"disabled"}>Recibido listado de autos</label>
+      <label class="check"><input type="checkbox" data-a="${esc(a)}" data-k="gen" ${s.gen?"checked":""} ${ge?"":"disabled"}>Recibido listado de generales</label>
+      <div class="toolbar"><button class="btn small" data-mail="${esc(a)}">Ver correo de solicitud</button><button class="btn small" data-conc="${esc(a)}">Conciliar listado</button></div></div>`}).join("")||`<p class="empty">No hay pólizas pendientes que venzan en este mes.</p>`}</div>
+  </section>`;
+  document.getElementById("mes").onchange=e=>{mesSel=e.target.value;render()};
+  main.querySelectorAll("input[data-k]").forEach(c=>c.onchange=()=>{const s=sol[c.dataset.a]||(sol[c.dataset.a]={});s[c.dataset.k]=c.checked;save();render()});
+  main.querySelectorAll("[data-mail]").forEach(b=>b.onclick=()=>correo(b.dataset.mail,delMes.filter(p=>p.aseguradora===b.dataset.mail),sol));
+  main.querySelectorAll("[data-conc]").forEach(b=>b.onclick=()=>conciliar(b.dataset.conc,delMes.filter(p=>p.aseguradora===b.dataset.conc)));
+}
+function correo(a,l,sol){
+  const mes=parse(mesSel+"-01").toLocaleDateString("es-CO",{month:"long",year:"numeric"});
+  const txt=`Asunto: Solicitud de renovaciones ${mes} – S.R.J. Seguros Riesgos Jurídica\n\nBuen día, equipo ${a}:\n\nDe manera atenta solicitamos las condiciones de renovación de las siguientes pólizas que vencen en ${mes}. Agradecemos incluir tanto las pólizas de autos como las de ramos generales:\n\n`+
+    l.map((p,i)=>`${i+1}. Póliza ${p.numero} · ${p.ramo} · ${p.cliente} · vence ${fmtFecha(p.fin)}${p.placa?" · placa "+p.placa:""}`).join("\n")+
+    `\n\nQuedamos atentos a su respuesta.\n\nCordialmente,\nÁrea comercial\nS.R.J. Seguros Riesgos Jurídica\nYopal, Casanare`;
+  abrir(`<header><div><h2>Correo de solicitud · ${esc(a)}</h2><p class="lead">Copie el texto y envíelo desde el correo de la agencia.</p></div><button class="btn small" data-close>Cerrar</button></header>
+  <pre class="mail" id="mail-txt">${esc(txt)}</pre><div class="toolbar"><button class="btn primary" id="m-copy">Copiar texto</button><button class="btn" id="m-env">Marcar como enviada</button></div>`);
+  document.getElementById("m-copy").onclick=()=>{navigator.clipboard?.writeText(txt).then(()=>toast("Texto copiado"),()=>{const r=document.createRange();r.selectNodeContents(document.getElementById("mail-txt"));const s=getSelection();s.removeAllRanges();s.addRange(r);toast("Texto seleccionado; use Copiar")})};
+  document.getElementById("m-env").onclick=()=>{(sol[a]||(sol[a]={})).enviada=iso(HOY);l.forEach(p=>p.gestiones.push({f:iso(HOY),t:"Correo",n:"Solicitud de renovación enviada a "+a+"."}));save();cerrar();render();toast("Solicitud marcada como enviada")};
+}
+function conciliar(a,l){
+  abrir(`<header><div><h2>Conciliar listado · ${esc(a)}</h2><p class="lead">Pegue los números de póliza que envió la aseguradora (uno por línea o separados por comas). Se comparan con el registro de la agencia para el mes.</p></div><button class="btn small" data-close>Cerrar</button></header>
+  <textarea id="cc-txt" rows="6"></textarea><div><button class="btn primary" id="cc-go">Comparar</button></div><div id="cc-res"></div>`);
+  document.getElementById("cc-go").onclick=()=>{
+    const env=new Set(document.getElementById("cc-txt").value.split(/[\s,;]+/).map(s=>s.trim()).filter(Boolean));
+    const falta=l.filter(p=>!env.has(p.numero)), nuevos=[...env].filter(n=>!DB.polizas.some(p=>p.numero===n));
+    document.getElementById("cc-res").innerHTML=`<div class="panel" style="display:grid;gap:10px">
+      <div><h3>No vinieron en el listado de la aseguradora (${falta.length})</h3>${falta.map(p=>`<div class="check" style="justify-content:space-between"><span class="mono">${esc(p.numero)}</span><span>${esc(p.ramo)} · ${esc(p.cliente)}</span></div>`).join("")||"<p class='lead'>Ninguna. El listado está completo.</p>"}${falta.length?`<p class="warn" style="margin:6px 0 0">Pídalas de forma expresa para que no se queden sin renovar.</p>`:""}</div>
+      <div><h3>Vinieron en el listado pero no están registradas (${nuevos.length})</h3>${nuevos.map(n=>`<div class="mono">${esc(n)}</div>`).join("")||"<p class='lead'>Ninguna.</p>"}${nuevos.length?`<p class="warn" style="margin:6px 0 0">Regístrelas para que la plataforma las alerte el próximo año.</p>`:""}</div></div>`;
+  };
+}
+
+render();
+window.__srj={DB:()=>DB,reset:()=>{DB={polizas:seed(),solicitudes:{}};save();render()}};
+})();
+</script>
+
+</body></html>
